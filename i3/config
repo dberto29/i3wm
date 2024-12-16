@@ -125,7 +125,7 @@ bindsym $mod+r mode "resize"
 # autostart programs
 exec --no-startup-id xrandr -s 1920x1080
 exec --no-startup-id polybar
-exec --no-startup-id ntrogen --restore
+exec --no-startup-id nitrogen --restore
 
 # bindkeys
 bindsym $mod+Return exec i3-sensible-terminal
