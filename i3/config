@@ -11,7 +11,7 @@ default_border pixel 2
 gaps inner 2
 
 # windows border colors   border  backgr. text    indicator child_border
-client.focused           #8BE9FD  #BD93F9 #27292C #8BE9FD   #BD93F9
+client.focused           #8BE9FD  #7259a8 #27292C #8BE9FD   #7259a8
 
 # Start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
