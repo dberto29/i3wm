@@ -7,8 +7,8 @@ set $mod Mod4
 font pango:monospace 8
 
 # Borders and gaps 
-default_border pixel 3 
-gaps inner 3 
+default_border pixel 3
+gaps inner 3
 
 # Start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
@@ -48,19 +48,10 @@ bindsym $mod+v split h
 # split in vertical orientation
 bindsym $mod+h split v
 
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -125,11 +116,13 @@ bindsym $mod+r mode "resize"
 
 # autostart programs
 exec --no-startup-id xrandr -s 1920x1080
-exec --no-startup-id polybar
+exec polybar
 exec --no-startup-id nitrogen --restore
+exec flameshot
 
 # bindkeys
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+Alt+Control+w firefox
-bindsym $mod+Alt+Control+f Thunar
+bindsym $mod+p exec rofi -show run
+bindsym $mod+d exec dmenu_run
+bindsym $mod+w exec firefox
+bindsym $mod+f exec Thunar
