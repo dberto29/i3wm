@@ -7,8 +7,11 @@ set $mod Mod4
 font pango:monospace 8
 
 # Borders and gaps 
-default_border pixel 3
-gaps inner 3
+default_border pixel 2
+gaps inner 2
+
+# windows border colors   border  backgr. text    indicator child_border
+client.focused           #8BE9FD  #BD93F9 #27292C #8BE9FD   #BD93F9
 
 # Start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
@@ -121,8 +124,7 @@ exec --no-startup-id nitrogen --restore
 exec flameshot
 
 # bindkeys
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+p exec rofi -show run
-bindsym $mod+d exec dmenu_run
+bindsym $mod+Return exec alacritty
+bindsym $mod+p exec rofi -show drun
 bindsym $mod+w exec firefox
 bindsym $mod+f exec Thunar
