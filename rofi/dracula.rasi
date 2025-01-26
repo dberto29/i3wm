@@ -1,133 +1,157 @@
-/*Dracula theme based on the Purple official rofi theme*/
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
 
-configuration {
-    show-icons:      true;
-    display-drun:    "";
-    disable-history: false;
-}
+[colors]
+background = #282A2E
+background-alt = #373B41
+foreground = #C5C8C6
+primary = #F0C674
+secondary = #8ABEB7
+alert = #A54242
+disabled = #707880
 
-* {
-    font: "Jetbrains Mono 12";
-    foreground: #f8f8f2;
-    background-color: #282a36;
-    active-background: #6272a4;
-    urgent-background: #ff5555;
-    urgent-foreground: #282a36;
-    selected-background: @active-background;
-    selected-urgent-background: @urgent-background;
-    selected-active-background: @active-background;
-    separatorcolor: @active-background;
-    bordercolor: @active-background;
-}
+i3blue = #285577
+white = #ffffff
+black = #000000
+yellow = #d49c02
+red = #730000
+gray = #3f3f3f
 
-#window {
-    background-color: @background-color;
-    border:           3;
-    border-radius:    6;
-    border-color:     @bordercolor;
-    padding:          15;
-}
-#mainbox {
-    border:  0;
-    padding: 0;
-}
-#message {
-    border:       0px;
-    border-color: @separatorcolor;
-    padding:      1px;
-}
-#textbox {
-    text-color: @foreground;
-}
-#listview {
-    fixed-height: 0;
-    border:       0px;
-    border-color: @bordercolor;
-    spacing:      2px ;
-    scrollbar:    false;
-    padding:      2px 0px 0px ;
-}
-#element {
-    border:  0;
-    padding: 3px ;
-}
-#element.normal.normal {
-    background-color: @background-color;
-    text-color:       @foreground;
-}
-#element.normal.urgent {
-    background-color: @urgent-background;
-    text-color:       @urgent-foreground;
-}
-#element.normal.active {
-    background-color: @active-background;
-    text-color:       @foreground;
-}
-#element.selected.normal {
-    background-color: @selected-background;
-    text-color:       @foreground;
-}
-#element.selected.urgent {
-    background-color: @selected-urgent-background;
-    text-color:       @foreground;
-}
-#element.selected.active {
-    background-color: @selected-active-background;
-    text-color:       @foreground;
-}
-#element.alternate.normal {
-    background-color: @background-color;
-    text-color:       @foreground;
-}
-#element.alternate.urgent {
-    background-color: @urgent-background;
-    text-color:       @foreground;
-}
-#element.alternate.active {
-    background-color: @active-background;
-    text-color:       @foreground;
-}
-#scrollbar {
-    width:        2px ;
-    border:       0;
-    handle-width: 8px ;
-    padding:      0;
-}
-#sidebar {
-    border:       2px dash 0px 0px ;
-    border-color: @separatorcolor;
-}
-#button.selected {
-    background-color: @selected-background;
-    text-color:       @foreground;
-}
-#inputbar {
-    spacing:    0;
-    text-color: @foreground;
-    padding:    1px ;
-}
-#case-indicator {
-    spacing:    0;
-    text-color: @foreground;
-}
-#entry {
-    spacing:    0;
-    text-color: @foreground;
-}
-#prompt {
-    spacing:    0;
-    text-color: @foreground;
-}
-#inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
-}
-#textbox-prompt-colon {
-    expand:     false;
-    str:        ">";
-    margin:     0px 0.3em 0em 0em ;
-    text-color: @foreground;
-}
-element-text, element-icon {
-    background-color: inherit;
-    text-color: inherit;
-}
+draculaforeground = #44475A
+draculabackground = #282A36
+draculacomment = #6272A4
+draculawhite = #F8F8F2
+draculablack = #27292C
+draculacyan = #8BE9FD
+draculagreen = #50FA7B
+draculapurple = #7259a8
+;draculapurple = #BD93F8
+draculared = #FF5555
+draculayellow = #F1FA8C
+draculaorange = #FFB86C
+draculapink = #FF79C6
+
+[bar/example]
+width = 100%
+height = 18pt
+radius = 0
+
+; dpi = 96
+
+background = ${colors.draculabackground}
+foreground = ${colors.draculawhite}
+
+line-size = 0pt
+
+border-size = 0pt
+border-color = #00000000
+
+padding-left = 0
+padding-right = 1
+
+module-margin = 1
+
+separator = +
+separator-foreground = ${colors.draculawhite}
+
+font-0 = monospace;2
+
+modules-left = i3 xwindow
+modules-right = systray xkeyboard pulseaudio date
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+enable-ipc = true
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+pin-workspaces = true
+show-urgent = true
+index-sort = true
+enable-click = true
+enable-scroll = true
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-background = ${colors.draculared} 
+
+label-focused = %index%
+label-focused-foreground = ${colors.draculabackground}
+label-focused-background = ${colors.draculapurple} 
+label-focused-padding = 1
+
+label-unfocused = %index%
+label-unfocused-foreground = #ffffff
+label-unfocused-background = ${colors.draculaforeground}
+label-unfocused-padding = 1
+
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = ${colors.draculared}  
+label-urgent-padding = 1
+
+[module/systray]
+type = internal/tray
+
+format-margin = 8pt
+tray-spacing = 16pt
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:100:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+format = <label-indicator>
+
+label-indicator = CapsLock
+
+label-indicator-padding = 1
+label-indicator-margin = 1
+label-indicator-foreground = ${colors.background}
+label-indicator-background = ${colors.draculayellow}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume-prefix = "VOL "
+format-volume-prefix-foreground = ${colors.white}
+format-volume = <label-volume>
+
+label-volume = %percentage%%
+
+label-muted = muted
+label-muted-foreground = ${colors.disabled}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date-alt = %H:%M
+date = %Y-%m-%d %H:%M:%S
+
+label = %date%
+label-foreground = ${colors.white}
+
+[settings]
+screenchange-reload = true
+pseudo-transparency = true
+
+; vim:ft=dosini
