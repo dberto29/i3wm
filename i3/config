@@ -7,11 +7,11 @@ set $mod Mod4
 font pango:monospace 8
 
 # Borders and gaps 
-default_border pixel 2
+default_border pixel 3
 gaps inner 2
 
 # windows border colors   border  backgr. text    indicator child_border
-client.focused           #8BE9FD  #7259a8 #F8F8F2 #8BE9FD   #7259a8
+client.focused            #7259a8 #7259a8 #F8F8F2 #8BE9FD   #7259a8
 
 # Start XDG autostart .desktop files using dex.
 exec --no-startup-id dex --autostart --environment i3
