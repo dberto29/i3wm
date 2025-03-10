@@ -122,6 +122,7 @@ exec --no-startup-id xrandr -s 1920x1080
 exec polybar
 exec --no-startup-id nitrogen --restore
 exec flameshot
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # bindkeys
 bindsym $mod+Return exec alacritty
